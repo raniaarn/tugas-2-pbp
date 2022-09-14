@@ -41,12 +41,14 @@ lakukan mapping dengan menggunakan sintaks khusus yaitu {{ data }} (double curly
       </tr>
     {% endfor %}
 ```
-kemudian ada syntax untuk membuat sebuah table dengan data kita.
 
 4. **Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.**
 push semua perubahan yang tersimpan pada lokal ke repository GitHub, membuat file bernama Procfile yang akan digunakan heroku untuk membaca aktivitas log aplikasi ke sistem monitoring internal heroku. Kemudian dalam repo yang sama, juga buat file dpl.yml berisi script yang digunakan untuk mengeksekusi deployment oleh runner dari GitHub Actions. kita jga harus menmbahkan konfigurasi terkait ditectory pada folder project_django pada settings.py yang berisi segala setting mengenai project kit, allowed host pada settings.py juga disetting agar bisaa diakses semua host dengan mamasukkan bintang. 
 agar tersedia static files (biar kita bisa deploy dimana saja taanpa bergantung kepada layanan external) ditaambahkan whitenoise middleware pada variable middleware yang ada di settings.py
 membuat 2 variable repository secret yang berisi nama aplikasi dan API key dari akun heroku, setelah itu deployment sukses. Saya juga melakukan automatic deployment dengan menyambungkan heroku dan repository saya agar jika ada perubahan bisa terdeploy.
+
+# Testing
+
  
 
 ## Credits

@@ -11,8 +11,12 @@ https://itemmate.herokuapp.com/katalog/
 # Bagan request client ke web aplikasi berbasis Django
 
 # Kenapa menggunakan virtual environment?
+Tanpa menggunakan virtual environment, project yang kita buat tetap berjalan tetapi dengan adanya virtual environment akan membantu kita untuk mejaga dependensi yang diperlukan oleh berbagai proyek, jadi virtual environment membuat python virtula environment yang terisolasi untuk masing-masing project. (memisahkan antar project agar tidak tercampur).
+
+Virtualenv mengelola packages python untuk project yng berbeda, versions yang berbeda, 
 
 # bagaimana cara saya mengimplementasikan poin 1 sampai dengan 4
+
 
 ## Credits
 

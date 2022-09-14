@@ -7,7 +7,7 @@ kelas: PBP B
 https://itemmate.herokuapp.com/katalog/
 
 # Bagan request client ke web aplikasi berbasis Django
-![bagan request drawio](https://user-images.githubusercontent.com/87572562/190277465-3a77513d-69f6-4273-ac6b-37623d0a1106.png)
+![bagan request drawio](https://user-images.githubusercontent.com/87572562/190278716-6d8e5f66-6e9e-4a79-a0f0-5c84072ea21d.png)
 
 dengan konsep MTV Django, yaitu:
 

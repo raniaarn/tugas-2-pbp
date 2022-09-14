@@ -8,9 +8,13 @@ https://itemmate.herokuapp.com/katalog/
 
 # Bagan request client ke web aplikasi berbasis Django
 ![bagan request drawio](https://user-images.githubusercontent.com/87572562/190277465-3a77513d-69f6-4273-ac6b-37623d0a1106.png)
+
 dengan konsep MTV Django, yaitu:
+
 Model: data access layer
+
 Template: presentation layer, yang nantinya akan ditampilkan ke client
+
 View: bussiness logic layer, sebagai jembatan antara model dan template
 
 # Kenapa menggunakan virtual environment?

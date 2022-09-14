@@ -7,6 +7,7 @@ kelas: PBP B
 https://itemmate.herokuapp.com/katalog/
 
 # Bagan request client ke web aplikasi berbasis Django
+![bagan request drawio](https://user-images.githubusercontent.com/87572562/190277465-3a77513d-69f6-4273-ac6b-37623d0a1106.png)
 
 # Kenapa menggunakan virtual environment?
 Tanpa menggunakan virtual environment, project yang kita buat tetap berjalan tetapi dengan adanya virtual environment akan membantu kita untuk mejaga dependensi yang diperlukan oleh berbagai proyek, jadi virtual environment membuat python virtual environment yang terisolasi untuk masing-masing project. (memisahkan antar project agar tidak tercampur).
@@ -32,7 +33,7 @@ lakukan mapping dengan menggunakan sintaks khusus yaitu {{ data }} (double curly
       </tr>
     {% endfor %}
 ```
-kemudian ada syntax <table></table> untuk membuat sebuah table dengan data kita.
+kemudian ada syntax untuk membuat sebuah table dengan data kita.
 
 4. **Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.**
 push semua perubahan yang tersimpan pada lokal ke repository GitHub, membuat file bernama Procfile yang akan digunakan heroku untuk membaca aktivitas log aplikasi ke sistem monitoring internal heroku. Kemudian dalam repo yang sama, juga buat file dpl.yml berisi script yang digunakan untuk mengeksekusi deployment oleh runner dari GitHub Actions. kita jga harus menmbahkan konfigurasi terkait ditectory pada folder project_django pada settings.py yang berisi segala setting mengenai project kit, allowed host pada settings.py juga disetting agar bisaa diakses semua host dengan mamasukkan bintang. 

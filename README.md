@@ -48,7 +48,10 @@ agar tersedia static files (biar kita bisa deploy dimana saja taanpa bergantung 
 membuat 2 variable repository secret yang berisi nama aplikasi dan API key dari akun heroku, setelah itu deployment sukses. Saya juga melakukan automatic deployment dengan menyambungkan heroku dan repository saya agar jika ada perubahan bisa terdeploy.
 
 # Testing
-
+untuk melakukan test pada models, menggunakan command berikut
+```
+python manage.py test katalog.tests
+```
  
 
 ## Credits

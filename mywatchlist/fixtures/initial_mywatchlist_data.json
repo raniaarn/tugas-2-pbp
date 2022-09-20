@@ -1,0 +1,112 @@
+[
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":1,
+        "fields":{
+            "watched":"yes",
+            "title":"Shrek 3",
+            "rating": 3,
+            "release_date":"2007-05-17",
+            "review": "It's not an animated masterpiece like the enchanting first two classics, but it's still one of those rare films that everyone from preschoolers to grandparents will find irresistibly amusing."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":2,
+        "fields":{
+            "watched":"no",
+            "title":"Inception",
+            "rating": 4,
+            "release_date":"2010-07-16",
+            "review": "Inception is such a mind-blowing, storytelling masterpiece and Christopher Nolan's 1# film while also being one of the greatest science fiction action movies ever made."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":3,
+        "fields":{
+            "watched":"no",
+            "title":"Soul",
+            "rating": 4,
+            "release_date":"2020-10-11",
+            "review": "HHHOOOLLLYYY WWWOOOWWW!!!  WHAT AN AMAZING MOVIE!!!  I love the message about how to appreciate yourself and to be happy about all the little moments in your life and not hold on to bad relationships and truly appreciate the gift of life that life is not about talent."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":4,
+        "fields":{
+            "watched":"no",
+            "title":"Harry Potter and the Half-Blood Prince",
+            "rating": 4,
+            "release_date":"2009-06-30",
+            "review": "The best HP film ever! It's so sweet yet so dark and sad at the same time. And Daniel, Rupert and Emma play off each other wonderfully."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":5,
+        "fields":{
+            "watched":"yes",
+            "title":"Mars Needs Moms",
+            "rating": 3,
+            "release_date":"2011-03-11",
+            "review": "This movie is great at explaining the value of good communication between kids and parents and the dynamics so many average families have."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":6,
+        "fields":{
+            "watched":"no",
+            "title":"The Greatest Showman",
+            "rating": 3,
+            "release_date":"2017-12-29",
+            "review": "HOLY WOW!!!  WHAT AN AMAZING MOVIE!!!  I really the message about bringing others together thought music and performing arts, keep perspective and be yourself!  Additionally, I am so intrigued, energetic, enthusiastic, and inspired by Zac Efron's performance as Phillip Carlyle as he truly embodied the transformative character."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":7,
+        "fields":{
+            "watched":"yes",
+            "title":"Wreck It Ralph",
+            "rating": 4,
+            "release_date":"2012-11-09",
+            "review": "Definitely a Disney gem! I’ve loved this movie ever since I was little, and it still entertains me today."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":8,
+        "fields":{
+            "watched":"yes",
+            "title":"Meet the Robinsons",
+            "rating": 3,
+            "release_date":"2007-03-30",
+            "review": "i adore the movie! i Know i'm old enough to understand that its a kids movie, but i cried at the end."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":9,
+        "fields":{
+            "watched":"no",
+            "title":"Chicken Little",
+            "rating": 3,
+            "release_date":"2005-12-01",
+            "review": "After seeing this film quite a number of times I can say without a doubt that it's one of the funniest, cutest and most wonderful Disney films I've ever seen."
+        }
+    },
+    {
+        "model":"mywatchlist.mywatchlist",
+        "pk":10,
+        "fields":{
+            "watched":"no",
+            "title":"Home on the Range",
+            "rating": 4,
+            "release_date":"2004-04-02",
+            "review": "This movie is so underrated it is one of my top ten favorite Disney movies of all time would 10/10 recomend."
+        }
+    }
+]

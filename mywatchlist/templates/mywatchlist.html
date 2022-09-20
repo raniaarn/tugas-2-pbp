@@ -2,13 +2,34 @@
 
  {% block content %}
 
-  <h1>My Watch List</h1>
+  <h1 style="text-align:center;font-family:sans-serif;">My Watch List</h1>
 
-  <h5>Name: </h5>
-  <p>{{name}}</p>
+  <p style="text-align:center;font-family:sans-serif;color: burlywood;">by {{name}} - {{student_id}}</p>
+  
+  <p style="text-align:center;font-family:sans-serif;font-weight:bold;">{{status}}</p>
 
-  <h5>Student ID: </h5>
-  <p>{{student_id}}</p>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th {
+      text-align: center;
+      padding: 10px;
+      border: 8px solid lightgray;
+    }
+    
+    tr:nth-child(even) {
+      background-color: beige;
+    }
+
+    td {
+      text-align: center;
+      border: 7px solid white;
+    }
+  </style>
 
   <table>
     <tr>
@@ -21,11 +42,11 @@
     {% comment %} Add the data below this line {% endcomment %}
     {% for movie in list_of_movies %}
       <tr>
-          <th>{{movie.watched}}</th>
-          <th>{{movie.title}}</th>
-          <th>{{movie.rating}}</th>
-          <th>{{movie.release_date}}</th>
-          <th>{{movie.review}}</th>
+          <td>{{movie.watched}}</td>
+          <td style="width: 30%;">{{movie.title}}</td>
+          <td>{{movie.rating}}</td>
+          <td style="width: 10%;">{{movie.release_date}}</td>
+          <td style="width: 60%;">{{movie.review}}</td>
       </tr>
     {% endfor %}
   </table>

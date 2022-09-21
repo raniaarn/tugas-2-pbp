@@ -24,3 +24,6 @@ Dengan bantuan data delivery, aplikasi diizinkan untuk bertukar informasi antar 
 ## cara mengimplementasikan Tugas 3
 
 ## Screenshot postman
+![messageImage_1663699690024](https://user-images.githubusercontent.com/87572562/191407355-0e6f8efd-a02f-4dcd-a003-f1d33f9865ad.jpg)
+![messageImage_1663699724833](https://user-images.githubusercontent.com/87572562/191407363-c9cac190-4807-44d2-a2ac-c838de41d76b.jpg)
+![messageImage_1663699745280](https://user-images.githubusercontent.com/87572562/191407368-a751040b-4e63-49a2-95bd-0394507e146f.jpg)

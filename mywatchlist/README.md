@@ -44,18 +44,18 @@ di dalam urls pada project_django, pada variable urlpatterns, menambahkan
 ```path('mywatchlist/', include('mywatchlist.urls'))```
 agar bisa mengakses aplikasi yang dibuat dengan path tersebut. Membuat fungsi pada views.py yang akan mereturn render berisi parameter request, template HTML, dan context (dictionary berisi data yang mau dipetakan). template HTML sebagaimana HTML pada umumnya yang akan mengambil data dari views.py. Kemudian membuat file urls.py pada folder aplikasi yang dibuat untuk melakukan routing terhadap fungsi tadi, sehingga bisa ditampilkan di browser. urls.py berisi variable app_name dan urlpatterns yang berupa list berisi paths.
 
-## Menambahkan 10 data untuk objek MyWatchList
+### Menambahkan 10 data untuk objek MyWatchList
 menambahkan 10 data dengan menggunakan file JSON yang di dalamnya berupa list of dictionaries (menandakan sebuah object), setiap data memiliki atribut yang sebelumnya telah dibuat pada models.py. Setelah dibuat, melakukan ```python manage.py loaddata initial_wishlist_data.json```
 tambahkan juga pada Procfile.
 
-## HTML, XML, JSON dan routing
+### HTML, XML, JSON dan routing
 HTML sudah dijelaskan pada path mywatchlist. Untuk json dan xml membuat fungsi baru lagi untuk masing-masing. fungsi tersebut menerima parameter request. Sama dengan HTML, buat vaariable yang menyimpan hasil query dari data pada MyWatchList yaitu dengan cara ```MyWatchList.objects.all()```. Kemudian fungsi tersebut akan return HttpResponse parameternya content yang menggunakan serializers (converting objects ke tipe data yang mudah di render (ke JSON, XML, dsb)), memakai method serialize menerima parameter json/xml dan data yang mau diconvert. Parameter kedua dari HttpResponse adalah content type ```content_type="application/<xml atau json>")```
 kemudian tambahkan path url ke dalam urlpatterns pada mywatchlist.urls berisi parameter path, fungsi yang mau di routing, dan nama fungsinya. ```path('json/', show_json, name="show_json")```
 
-## Deployment
+### Deployment
 Karena menggunakan project yang sama dengan sebelumnya, maka apps yang dipakai masih sama. Tetapi jika dari awal, untuk memulai deploy, buat aplikasinya terlebih dahulu di Heroku, update Procfile, berkas dpl.yml untuk mengeksekusi deployment, menambahkan middleeware white noise, membuat 2 variable repository secret di GitHub berupa nama aplikasi dan API Key. Setiap terjadi commit baru, buka GitHub Actions dan jalankan workflow yang gagal. Sambungkan juga aplikasi Heroku dengan repo GitHub agar langsung melakukan deploy tiap ada perubahan.
 
-## Screenshot postman
+### Screenshot postman
 ![messageImage_1663699690024](https://user-images.githubusercontent.com/87572562/191407355-0e6f8efd-a02f-4dcd-a003-f1d33f9865ad.jpg)
 ![messageImage_1663699724833](https://user-images.githubusercontent.com/87572562/191407363-c9cac190-4807-44d2-a2ac-c838de41d76b.jpg)
 ![messageImage_1663699745280](https://user-images.githubusercontent.com/87572562/191407368-a751040b-4e63-49a2-95bd-0394507e146f.jpg)

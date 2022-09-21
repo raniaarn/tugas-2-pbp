@@ -14,17 +14,14 @@
       border-collapse: collapse;
       width: 100%;
     }
-    
     th {
       text-align: center;
       padding: 10px;
       border: 8px solid lightgray;
     }
-    
     tr:nth-child(even) {
       background-color: beige;
     }
-
     td {
       text-align: center;
       border: 7px solid white;
@@ -45,7 +42,7 @@
           <td>{{movie.watched}}</td>
           <td style="width: 30%;">{{movie.title}}</td>
           <td>{{movie.rating}}</td>
-          <td style="width: 10%;">{{movie.release_date}}</td>
+          <td style="width: 20%;">{{movie.release_date}}</td>
           <td style="width: 60%;">{{movie.review}}</td>
       </tr>
     {% endfor %}

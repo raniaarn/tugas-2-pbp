@@ -16,14 +16,40 @@ Jadi JSON dan XML digunakan untuk penyimpanan dan pertukaran data. Untuk perbeda
 
 berbeda dengan JSON dan XML, HTML lebih digunakan untuk mengatur tampilan serta presentasi dari suatu data.
 
-HTML adalah Hypertext Markup Language. HTML menyediakan code yang akan digunakan untuk 
+HTML adalah Hypertext Markup Language. HTML menyediakan code yang akan digunakan untuk membuat tampilan halaman website dan juga aplikasi web. 
+
+beberapa perbedaan lagi:
+- jika ada multi white-space di HTML, akan dijadikan single white-space. Sedangkan di XML, tidak akan dipotong. JSON juga mengabaikan white-space
+- dalam HTML, data secara langsung dapat dipetakan dengan aplikasi, sedangkan XML tidak langsung
+- size dari HTML lebih kecil dibandingkan XML, tetapi JSON lebih kecil karena lebih pendek
+- HTML case insensitive, sedangkan XML dan JSON case-sensitive
 
 ## mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform
-Dengan bantuan data delivery, aplikasi diizinkan untuk bertukar informasi antar platform dan juga antar sistem operasi. 
+Dengan bantuan data delivery, aplikasi diizinkan untuk bertukar informasi antar platform, aplikasi, devicees dan juga antar sistem operasi. 
+
+Ada beberapa 
+
+
+
 
 ## cara mengimplementasikan Tugas 3
+### Aplikasi mywatchlist
+``` django-admin startapp mywatchlist ```
+dengan melakukan command tersebut, secara otomatis akan ada folder aplikasi mywatchlist berisi beberapa file python yang di-generate, berupa init, admin, apps, models, views, urls, dan tests. Dalam file settings.py, tambahkan 'mywatchlist' ke dalam variable INSTALLED_APPS. Pada folder models.py, buat sebuah class yang akan merepresentasikan tiap data/object yang nantinya akan dibuat (terdapat 5 variabel dan masing2nya merupakan jenis field yang berbeda-beda). kemudian dilakukan migration untuk menerapkan skema model yang telah dibuat ke dalam database django lokal. 
+
+### Path mywatchlist
+di dalam urls pada project_django, pada variable urlpatterns, menambahkan 
+```path('mywatchlist/', include('mywatchlist.urls'))```
+agar bisa mengakses aplikasi yng dibuat dengan path tersebut. Kemudian buat folder urls pada folder mywatchlist 
+
+
 
 ## Screenshot postman
 ![messageImage_1663699690024](https://user-images.githubusercontent.com/87572562/191407355-0e6f8efd-a02f-4dcd-a003-f1d33f9865ad.jpg)
 ![messageImage_1663699724833](https://user-images.githubusercontent.com/87572562/191407363-c9cac190-4807-44d2-a2ac-c838de41d76b.jpg)
 ![messageImage_1663699745280](https://user-images.githubusercontent.com/87572562/191407368-a751040b-4e63-49a2-95bd-0394507e146f.jpg)
+
+sumber:
+Slide Data Delivery - https://scele.cs.ui.ac.id/pluginfile.php/161284/mod_resource/content/1/04%20-%20Data%20Delivery.pdf
+https://www.interviewbit.com/blog/difference-between-html-and-xml/
+

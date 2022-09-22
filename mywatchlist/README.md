@@ -34,7 +34,7 @@ beberapa perbedaan lagi:
 ## mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform
 Dengan bantuan data delivery, aplikasi diizinkan untuk bertukar informasi antar platform, aplikasi, devices dan juga antar sistem operasi. 
 
-Ada beberapa alasan mengapa penggunaan data delivery diperlukan selain untuk melakukan pertukaran antar platform, dengan data delivery, keamanan lebih meningkat karena dari banyak sistem yang dibuat, hanya ada 1 sistem pusat yang akan menyimpan data yang akan dikirimkan ke sistem lain. Kemudian dengan bantuan data delivery, akan memungkinkan kita untuk membuat mobile apps karena akan mudah berkomunikasi dengan web apps. Dengan data delivery, akan ada integrasi internal atau external systems. 
+Ada beberapa alasan mengapa penggunaan data delivery diperlukan selain untuk melakukan pertukaran antar platform, dengan data delivery, keamanan lebih meningkat karena dari banyak sistem yang dibuat, hanya ada 1 sistem pusat yang akan menyimpan data dan sistem lain menerima data yang dikirimkan sistem pusat. Kemudian dengan bantuan data delivery, akan memungkinkan kita untuk membuat mobile apps karena akan mudah berkomunikasi dengan web apps. Dengan data delivery, akan ada integrasi internal atau external systems (integrasi antara sistem-sistem informasi).
 
 ## cara mengimplementasikan Tugas 3
 ### Aplikasi mywatchlist

@@ -58,9 +58,9 @@ kemudian tambahkan path url ke dalam urlpatterns pada mywatchlist.urls berisi pa
 Karena menggunakan project yang sama dengan sebelumnya, maka apps yang dipakai masih sama. Tetapi jika dari awal, untuk memulai deploy, buat aplikasinya terlebih dahulu di Heroku, update Procfile, berkas dpl.yml untuk mengeksekusi deployment, menambahkan middleeware white noise, membuat 2 variable repository secret di GitHub berupa nama aplikasi dan API Key. Setiap terjadi commit baru, buka GitHub Actions dan jalankan workflow yang gagal. Sambungkan juga aplikasi Heroku dengan repo GitHub agar langsung melakukan deploy tiap ada perubahan.
 
 ### Screenshot postman
-![messageImage_1663699690024](https://user-images.githubusercontent.com/87572562/191407355-0e6f8efd-a02f-4dcd-a003-f1d33f9865ad.jpg)
-![messageImage_1663699724833](https://user-images.githubusercontent.com/87572562/191407363-c9cac190-4807-44d2-a2ac-c838de41d76b.jpg)
-![messageImage_1663699745280](https://user-images.githubusercontent.com/87572562/191407368-a751040b-4e63-49a2-95bd-0394507e146f.jpg)
+<img width="890" alt="Screenshot 2022-09-22 101427" src="https://user-images.githubusercontent.com/87572562/191650996-f20cb16f-67ad-4fa3-82b1-bfe35b5b4469.png">
+<img width="886" alt="Screenshot 2022-09-22 101516" src="https://user-images.githubusercontent.com/87572562/191651038-aa0fcf3b-d9fa-4840-88ea-2f1b0d2387b9.png">
+<img width="896" alt="Screenshot 2022-09-22 101447" src="https://user-images.githubusercontent.com/87572562/191651045-73ae95fd-fbda-43c6-b073-9caa1abe6323.png">
 
 sumber:
 

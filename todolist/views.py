@@ -55,10 +55,11 @@ def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
         form.instance.user = request.user
+        form.save()
         if form.is_valid():
             form.save()
             messages.success(request, 'Your task has been successfully added!')
-        return redirect('todolist:show_todolist')
+            return redirect('todolist:show_todolist')
 
     context = {'form':form}
     return render(request, 'create_task.html', context)

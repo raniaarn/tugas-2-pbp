@@ -32,6 +32,7 @@
       box-sizing: border-box;
       border-radius: 10px;
       border: 3px solid blueviolet;
+      background-color: white;
     }
     textarea {
       width:100%;
@@ -40,6 +41,7 @@
       box-sizing: border-box;
       border-radius: 10px;
       border: 3px solid blueviolet;
+      font-family: sans-serif;
     }
     a:link {
       color:blueviolet;
@@ -61,9 +63,10 @@
             {{ form.as_table }}  
             <tr>  
                 <td></td> 
+                <td><input type="submit" name="submit" value="Create"/></td>
             </tr>  
         </table>
-        <button><a href="{% url 'todolist:show_todolist' %}">Create</a></button>  
+        
     </form>
 
 </div>

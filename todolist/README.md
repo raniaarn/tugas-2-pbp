@@ -14,9 +14,12 @@ Ya, bisa. dengan menggunakan tag html ```<input>``` untuk membuat field sesuai d
 User mengisi fields yang ada pada halaman form dan melakukan submit sehingga data terkirim. Setelah itu data dikirimkan ke server (dengan method) ```save()```) jika data yang dikirimkan valid, dan database pada server akan berubah sesuai dengan input tersebut . Jika ada yang tidak valid, maka sesuai implementasi akan dilakukan sesuatu seperti pemberian peringatan.  Setelah itu, views mengembalikan render yang berisi data serta kemana dia akan dikirimkan (template HTML filenya) selanjutnya elemen terbaru akan ditampilkan.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-### Aplikasi mywatchlist
+### Aplikasi todolist
 ``` django-admin startapp todolist ```
-dengan melakukan command tersebut, secara otomatis akan ada folder aplikasi todolist berisi beberapa file python yang di-generate, berupa init, admin, apps, models, views, urls, dan tests. Dalam file settings.py, tambahkan 'todolist' ke dalam variable ```INSTALLED_APPS```. Pada folder ```models.py```, buat sebuah class yang akan merepresentasikan tiap data/object yang nantinya akan dibuat (terdapat 4 variabel dan masing2nya merupakan jenis field yang berbeda-beda). 
+dengan melakukan command tersebut, secara otomatis akan ada folder aplikasi todolist berisi beberapa file python yang di-generate, berupa init, admin, apps, models, views, urls, dan tests. Dalam file settings.py, tambahkan 'todolist' ke dalam variable ```INSTALLED_APPS```. 
+
+### Membuat model Task
+Pada folder ```models.py```, buat sebuah class (Task) yang akan merepresentasikan tiap data/object yang nantinya akan dibuat (terdapat 4 variabel dan masing2nya merupakan jenis field yang berbeda-beda). 
 
 untuk atribut user, menggunakan field ```ForeignKey()``` yaitu menandakan User berhubungan dengan modelnya. Ini juga akan membantu saat login dengan user yang bersangkutan untuk mendapatkan data-datanya. kemudian dilakukan migration untuk menerapkan skema model yang telah dibuat ke dalam database django lokal. 
 
@@ -56,9 +59,6 @@ urlpatterns = [
 ]
 ```
 jadi parameternya terdiri dari route untuk url agar bisa diakses, fungsi, dan nama.
-
-### routing
-Pada ```todolist/urls.py``` menambahkan paths pada urlpatterns. Karena akan ada 4 routing, maka tambahkan 4, yaitu:
 
 ### Deployment
 Karena menggunakan project yang sama dengan sebelumnya, maka apps yang dipakai masih sama. Tetapi jika dari awal, untuk memulai deploy, buat aplikasinya terlebih dahulu di Heroku, update Procfile, berkas dpl.yml untuk mengeksekusi deployment, menambahkan middleware white noise, membuat 2 variable repository secret di GitHub berupa nama aplikasi dan API Key. Setiap terjadi commit baru, buka GitHub Actions dan jalankan workflow yang gagal. Sambungkan juga aplikasi Heroku dengan repo GitHub agar langsung melakukan deploy tiap ada perubahan.

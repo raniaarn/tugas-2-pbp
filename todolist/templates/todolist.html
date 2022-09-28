@@ -6,6 +6,7 @@
 
  {% block content %}
 
+  <h3 style="text-align:center;font-family:sans-serif;">Welcome to</h3>
   <h1 style="text-align:center;font-family:sans-serif;">{{username}}'s To Do List</h1>
 
   <style>
@@ -13,11 +14,16 @@
       font-family: arial, sans-serif;
       border-collapse: collapse;
       width: 100%;
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
     }
     th {
       text-align: center;
-      padding: 10px;
-      border: 3px solid blueviolet;
+      padding: 10px 25px;
+      background-color: blueviolet;
+      color: white;
+      font-size: 15px;
     }
     td {
       text-align: center;
@@ -56,7 +62,7 @@
       <th>Date</th>
       <th>Title</th>
       <th>Description</th>
-      <th>Finish</th>
+      <th>Status</th>
       <th>Update</th>
       <th>Delete</th>
 

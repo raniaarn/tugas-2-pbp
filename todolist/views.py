@@ -13,6 +13,12 @@ def show_todolist(request):
     username = request.user
     item_list = Task.objects.filter(user=username)
 
+    for task in item_list:
+        if (task.is_finished == True):
+            task.is_finished = "Selesai"
+        else:
+            task.is_finished = "Belum Selesai"
+
     context = {
         'username': username,
         'list_of_tasks': item_list,

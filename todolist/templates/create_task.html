@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Create Task</title>
+{% endblock meta %}
+
+{% block content %}
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      display: flex;
+      margin: 0 auto;
+      text-align: center;
+      justify-content: center;
+    }
+    button {
+      background-color: white;
+      border: 3px solid blueviolet;
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    input {
+      width:100%;
+      padding: 12px 24px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 3px solid blueviolet;
+    }
+    textarea {
+      width:100%;
+      padding: 12px 24px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 3px solid blueviolet;
+    }
+    a:link {
+      color:blueviolet;
+      text-decoration: none;
+    }
+    a:visited {
+      color:blueviolet;
+      text-decoration: none;
+    }
+  </style>
+
+<div>
+
+    <h1 style="text-align:center;font-family:sans-serif;">Create a Task!</h1>
+
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>  
+            {{ form.as_table }}  
+            <tr>  
+                <td></td> 
+            </tr>  
+        </table>
+        <button><a href="{% url 'todolist:show_todolist' %}">Create</a></button>  
+    </form>
+
+</div>
+
+{% endblock content %}

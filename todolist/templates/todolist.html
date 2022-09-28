@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>{{username}}'s To Do List</title>
+{% endblock meta %}
+
+ {% block content %}
+
+  <h1 style="text-align:center;font-family:sans-serif;">{{username}}'s To Do List</h1>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th {
+      text-align: center;
+      padding: 10px;
+      border: 3px solid blueviolet;
+    }
+    td {
+      text-align: center;
+      border-top: 1px solid lightgray;
+      padding: 8px;
+    }
+    button {
+      background-color: white;
+      border: 3px solid blueviolet;
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    a:link {
+      color:blueviolet;
+      text-decoration: none;
+    }
+    a:visited {
+      color:blueviolet;
+      text-decoration: none;
+    }
+  </style>
+
+  {% if messages %}  
+      {% for message in messages %}  
+          <p style="font-family: sans-serif;">{{ message }}</p>  
+          {% endfor %}  
+  {% endif %}
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Finish</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+    </tr>
+    {% comment %} data of tasks {% endcomment %}
+    {% for task in list_of_tasks %}
+      <tr>
+          <td style="width: 20%;">{{task.date}}</td>
+          <td style="width: 30%;">{{task.title}}</td>
+          <td style="width: 60%;">{{task.description}}</td>
+          <td style="width: 20%;">{{task.is_finished}}</td>
+          <td><a class ="btn btn-sm btn-info" href="{% url 'todolist:edit_task' task.id %}">Update</a></td>
+          <td style="color: red"><a style="color: red;"class ="btn btn-sm btn-danger" href="{% url 'todolist:delete_task' task.id %}">Delete</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+
+
+  <button><a href="{% url 'todolist:create_task' %}">(+) Tambah Task Baru</a></button>
+  <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+
+ {% endblock content %}

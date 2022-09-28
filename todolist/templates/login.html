@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      display: flex;
+      margin: 0 auto;
+      text-align: center;
+      justify-content: center;
+    }
+    button {
+      background-color: white;
+      border: 3px solid blueviolet;
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    input {
+      width:100%;
+      padding: 12px 24px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 3px solid blueviolet;
+      background-color: white;
+    }
+    textarea {
+      width:100%;
+      padding: 12px 24px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 3px solid blueviolet;
+    }
+    p {
+        text-align: center;
+        font-family: sans-serif;
+    }
+    a:link {
+      color:blueviolet;
+    }
+    a:visited {
+      color:blueviolet;
+    } 
+    ul {
+        font-family: sans-serif;
+        text-align: center;
+    }
+  </style>
+
+<div class = "login">
+
+    <h1 style="text-align:center;font-family:sans-serif;">Login</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+            </tr>
+                    
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="btn login_btn" type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    <p>Don't have an account? <a href="{% url 'todolist:register' %}">Create Account</a></p>
+
+</div>
+
+{% endblock content %}

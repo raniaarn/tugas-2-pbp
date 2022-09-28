@@ -68,8 +68,8 @@
           <td style="width: 30%;">{{task.title}}</td>
           <td style="width: 60%;">{{task.description}}</td>
           <td style="width: 20%;">{{task.is_finished}}</td>
-          <td><a class ="btn btn-sm btn-info" href="{% url 'todolist:edit_task' task.id %}">Update</a></td>
-          <td><a style="color: red;"class ="btn btn-sm btn-danger" href="{% url 'todolist:delete_task' task.id %}">Delete</a></td>
+          <td><a style="color: white; padding: 5px 10px; border-radius: 5px; background-color: blueviolet;" href="{% url 'todolist:edit_task' task.id %}">&#x2714;</a></td>
+          <td><a style="color: white; padding: 5px 10px; border-radius: 5px; background-color: lightcoral;" href="{% url 'todolist:delete_task' task.id %}">X</a></td>
       </tr>
     {% endfor %}
   </table>

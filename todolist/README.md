@@ -18,6 +18,7 @@ dengan melakukan command tersebut, secara otomatis akan ada folder aplikasi mywa
 untuk atribut user, menggunakan field ForeignKey() yaitu menandakan User berhubungan dengan modelnya. Ini juga akan membantu saat login dengan user yang bersangkutan.kemudian dilakukan migration untuk menerapkan skema model yang telah dibuat ke dalam database django lokal. 
 
 ### form registrasi, login, dan logout
+Buat sebuah fungsi untuk merepresentasikan masing-masing form tersebut. Untuk register, menerima parameter request, melakukan pembuatan akun, dan disimpan jika isi formnya valid. 
 
 ### halaman utama todolist
 

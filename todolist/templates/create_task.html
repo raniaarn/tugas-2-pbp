@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
-{% block meta %}
-<title>Create Task</title>
-{% endblock meta %}
-
 {% block content %}
 
 <style>
+  body {
+      background-image: linear-gradient(-45deg, rgb(153, 251, 215), rgb(164, 183, 251));
+      background-position: center center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
     table {
       font-family: arial, sans-serif;
       display: flex;
@@ -14,34 +16,53 @@
       text-align: center;
       justify-content: center;
     }
-    button {
-      background-color: white;
+    input {
+      width:200px;
+      padding: 12px 24px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border-radius: 10px;
       border: 3px solid blueviolet;
+      background-color: white;
+    }
+    .container {
+        background-color: white;
+        max-width: 450px;
+        padding-bottom: 50px;
+        border-radius: 20px;
+        padding-top: 10px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .button_select {
+      background-color: rgb(115, 115, 236);
+      border: 0px;
       padding: 10px 24px;
+      color: white;
       text-align: center;
       font-size: 16px;
       display: block;
       margin: 0 auto;
       margin-top: 10px;
+      margin-bottom: 10px;
       border-radius: 10px;
+      filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
+    } 
+    .button_select:hover, .button_select:focus {
+      transform: scale(1.02);
+      background-color: rgb(71, 71, 226);
     }
-    input {
-      width:100%;
-      padding: 12px 24px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border-radius: 10px;
-      border: 3px solid blueviolet;
-      background-color: white;
+    .headings {
+      color: rgb(243, 243, 243);
+      text-shadow: 2px 2px 3px rgba(52, 47, 47, 0.619);
+      text-align:center;
+      font-family:sans-serif;
+      margin-top: 80px;
+      margin-bottom: 64px;
     }
-    textarea {
-      width:100%;
-      padding: 12px 24px;
-      margin: 8px 0;
-      box-sizing: border-box;
-      border-radius: 10px;
-      border: 3px solid blueviolet;
-      font-family: sans-serif;
+    a {
+      padding-left: 24px;
     }
     a:link {
       color:blueviolet;
@@ -50,25 +71,45 @@
     a:visited {
       color:blueviolet;
       text-decoration: none;
-    }
+    } 
   </style>
 
-<div>
 
-    <h1 style="text-align:center;font-family:sans-serif;">Create a Task!</h1>
-
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta %}
+    <title>Create Task</title>
+    {% endblock meta %}
+    <link rel="stylesheet" media="screen and (max-device-width: 799px)" href="http://foo.bar.com/narrow-styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class="headings" style="text-align:center;font-family:sans-serif;">Create a Task!</h1>
+    <div class="container">
+    <p class="material-icons"><a href="{% url 'todolist:show_todolist' %}">&#xe5c4;</a></p>
     <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
         <table>  
-            {{ form.as_table }}  
-            <tr>  
-                <td></td> 
-                <td><input type="submit" name="submit" value="Create"/></td>
-            </tr>  
-        </table>
-        
+            <tr>
+              <td>
+                <input type="text" name="title" maxlength="255" placeholder="Task title">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="description" placeholder="Task Description">
+              </td>
+            </tr> 
+        </table> 
+        <tr>  
+          <td><input class="button_select" type="submit" name="submit" value="Create"/></td>
+      </tr>  
     </form>
-
-</div>
+  </div>
+  <p style="color: rgb(255, 255, 255); padding-top: 20px; font-family: sans-serif; font-weight: bold; padding-bottom: 90px; text-align: center;">© Itemmate 2022</p>
+  </body>
 
 {% endblock content %}

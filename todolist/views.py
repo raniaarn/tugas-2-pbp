@@ -15,9 +15,9 @@ def show_todolist(request):
 
     for task in item_list:
         if (task.is_finished == True):
-            task.is_finished = "Selesai"
+            task.is_finished = "Done"
         else:
-            task.is_finished = "Belum Selesai"
+            task.is_finished = "Not Done"
 
     context = {
         'username': username,

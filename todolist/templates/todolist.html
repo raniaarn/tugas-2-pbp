@@ -41,8 +41,8 @@
       }
       .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        width: auto;
         height: 100%;
+        width: auto;
       }
       body {
         background-image: linear-gradient(-45deg, rgb(129, 237, 156), rgb(194, 163, 236));
@@ -179,7 +179,7 @@
 
     {% comment %} data of tasks {% endcomment %}
     <div class="container">
-    <div class="row row-cols-md-3 g-4 justify-content" >
+    <div class="row row-cols-md-3 g-4 justify-content-center" >
     {% for task in list_of_tasks %}
       <div class="col">
       <div class="card h-100">

@@ -60,7 +60,8 @@ Hanya untuk menaruh style secara spesifik ke satu element HTML, kita hanya perlu
 - Menambah ukuran page dan waktu downloadnya.
 
 ## Jelaskan tag HTML5 yang kamu ketahui.
-|       tags          |     description |
+|       tags                     |     description                                               |
+| :----------------------------: | :-----------------------------------------------------------: |
 | ``` <a> ``` | sebuah hyperlink, menghubungkan ke page lain |
 | ``` <b> ``` | menampilkan text dalam huruf tebal |
 | ``` <body> ``` | mendefinisikan body dari file HTML |
@@ -136,9 +137,13 @@ memilih semua elemen HTML pada file/halaman. Contoh (register.html):
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 ### 1.   Kustomisasi templat HTML
 Untuk menggunakan Bootstrap, kita perlu menambahkan code berikut pada template HTML:
+
 in head:
+
 ```<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">```
+
 in body:
+
 ```<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>```
 Selain itu juga menggunakan internal CSS styling pada masing-masing template HTML (login, register, todolist, dan create-task)
 

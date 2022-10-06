@@ -2,165 +2,154 @@
 
 {% block content %}
 
-  <style>
-    .button_select_new {
-      background-color: rgb(115, 115, 236);
-      border: 0px;
-      padding: 10px 24px;
-      text-align: center;
-      font-size: 16px;
-      display: block;
-      margin: 0 auto;
-      margin-top: 32px;
-      margin-bottom: 32px;
-      border-radius: 10px;
-      filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
-    }
-    .button_select_logout {
-      background-color: rgb(115, 115, 236);
-      border: 0px;
-      padding: 10px 24px;
-      text-align: center;
-      border-radius: 10px;
-      filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
-    }
-    .link_below:link {
-      color:white;
-      text-decoration: none;
-    }
-    .link_below:visited {
-      color:white;
-      text-decoration: none;
-    }
-    .card:hover, .card:focus {
-      transform: scale(1.02);
-      box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    }
-    .card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      width: auto;
-      height: 100%;
-    }
-    body {
-      background-image: linear-gradient(-45deg, rgb(129, 237, 156), rgb(194, 163, 236));
-      background-position: center center;
-      background-size: 100%;
-      background-repeat: no-repeat;
-      animation: gradient 15s ease infinite;
-    }
-    .button_select:hover, .button_select:focus {
-      transform: scale(1.02);
-      background-color: rgb(71, 71, 226);
-    }
-    .container {
-      position: relative;
-      padding-bottom: 16px;
-      width:500px;
-      border-radius: 20px;
-      display: flex;
-      margin: 0 auto;
-      align-items: center;
-      justify-content: center;
-    }
-    .navbar {
-      background: white;
-      opacity: 80%;
-    }
-    .headings {
-      color: rgb(243, 243, 243);
-      text-shadow: 2px 2px 3px rgba(52, 47, 47, 0.619);
-    }
-    .update_task {
-      margin: 8px;
-      text-align: center;
-      padding: 5px 10px; 
-      border-radius: 10px; 
-      background-color: rgb(115, 115, 236);
-      color: white;
-      width: 300px;
-      box-shadow: 2px 2px 5px rgb(174, 174, 174);
-    }
-    .delete_tag {
-      margin:8px; 
-      width: 48px;
-      text-align:center;
-      color: white; 
-      padding: 5px 10px; 
-      border-radius: 5px; 
-    }
-    .delete_tag:hover, .delete_tag:focus {
-      transform: scale(1.02);
-    }
-    .update_task:hover, .update_task:focus {
-      transform: scale(1.02);
-      background-color: rgb(71, 71, 226);
-    }
-    .button_box {
-      display: flex;
-      flex-flow: row wrap;
-      font-size: 14px;
-      margin: 0 0 10px 0;
-		  padding: 0;
-      justify-content: center;
-      list-style: none;
-    }
-    .card_button:link {
-      color: white;
-      text-decoration: none;
-    }
-    .card_button:visited {
-      color: white;
-      text-decoration: none;
-    }
-    .delete_link:visited, .delete_link:link {
-      color: rgb(115, 115, 236);
-      text-decoration: none;
-      font-size: 32px;
-    }
-    .delete_link:hover {
-      color: rgb(71, 71, 226);
-    }
-    .description {
-      padding: 5px 8px; color: gray;
-      margin-left: 24px;
-      margin-right: 24px;
-    }
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      } 
-    }
-    .success {
-      padding: 20px;
-      background-color: rgb(115, 115, 236);
-      color: white;
-      margin-bottom: 15px;
-      font-weight: bold;
-  }
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  .closebtn:hover {
-    color: black;
-  }
-  </style>
-
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+      .button_select_new {
+        background-color: rgb(115, 115, 236);
+        border: 0px;
+        padding: 10px 24px;
+        text-align: center;
+        font-size: 16px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        border-radius: 10px;
+        filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
+      }
+      .button_select_logout {
+        background-color: rgb(115, 115, 236);
+        border: 0px;
+        padding: 10px 24px;
+        text-align: center;
+        border-radius: 10px;
+        filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
+      }
+      .link_below:link {
+        color:white;
+        text-decoration: none;
+      }
+      .link_below:visited {
+        color:white;
+        text-decoration: none;
+      }
+      .card:hover, .card:focus {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: auto;
+        height: 100%;
+      }
+      body {
+        background-image: linear-gradient(-45deg, rgb(129, 237, 156), rgb(194, 163, 236));
+        background-position: center center;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-repeat: no-repeat;
+      }
+      .button_select:hover, .button_select:focus {
+        transform: scale(1.02);
+        background-color: rgb(71, 71, 226);
+      }
+      .container {
+        position: relative;
+        padding-bottom: 16px;
+        width:500px;
+        border-radius: 20px;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+      }
+      .navbar {
+        background: white;
+        opacity: 80%;
+      }
+      .headings {
+        color: rgb(243, 243, 243);
+        text-shadow: 2px 2px 3px rgba(52, 47, 47, 0.619);
+      }
+      .update_task {
+        margin: 8px;
+        text-align: center;
+        padding: 5px 10px; 
+        border-radius: 10px; 
+        background-color: rgb(115, 115, 236);
+        color: white;
+        width: 300px;
+        box-shadow: 2px 2px 5px rgb(174, 174, 174);
+      }
+      .delete_tag {
+        margin:8px; 
+        width: 48px;
+        text-align:center;
+        color: white; 
+        padding: 5px 10px; 
+        border-radius: 5px; 
+      }
+      .delete_tag:hover, .delete_tag:focus {
+        transform: scale(1.02);
+      }
+      .update_task:hover, .update_task:focus {
+        transform: scale(1.02);
+        background-color: rgb(71, 71, 226);
+      }
+      .button_box {
+        display: flex;
+        flex-flow: row wrap;
+        font-size: 14px;
+        margin: 0 0 10px 0;
+        padding: 0;
+        justify-content: center;
+        list-style: none;
+      }
+      .card_button:link {
+        color: white;
+        text-decoration: none;
+      }
+      .card_button:visited {
+        color: white;
+        text-decoration: none;
+      }
+      .delete_link:visited, .delete_link:link {
+        color: rgb(115, 115, 236);
+        text-decoration: none;
+        font-size: 32px;
+      }
+      .delete_link:hover {
+        color: rgb(71, 71, 226);
+      }
+      .description {
+        padding: 5px 8px; color: gray;
+        margin-left: 24px;
+        margin-right: 24px;
+      }
+      .success {
+        padding: 20px;
+        background-color: rgb(115, 115, 236);
+        color: white;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .closebtn:hover {
+        color: black;
+      }
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block meta %}
@@ -190,7 +179,7 @@
 
     {% comment %} data of tasks {% endcomment %}
     <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4" >
+    <div class="row row-cols-md-3 g-4 justify-content" >
     {% for task in list_of_tasks %}
       <div class="col">
       <div class="card h-100">
@@ -200,7 +189,6 @@
         <p style="margin-left:16px; padding: 0px 8px; font-size: 16px; font-weight:bold; color: rgb(115, 115, 236)">{{task.is_finished}}</p>
         <hr class="solid" style="border-top: 2px solid rgb(115, 115, 236)">
         <p class="description">{{task.description}}</p>
-        
         <div class="button_box mt-auto" style="background-color: none; align-items: center; padding-bottom: 20px; padding-top: 20px;">
           {% if task.is_finished == "Done" %}
             <p class="update_task material-icons"><a class="card_button" href="{% url 'todolist:edit_task' task.id %}">&#xf053;</a></p>

@@ -224,7 +224,7 @@
                 <input style="margin-top: 16px;" type="text" name="description" placeholder="Task Description">
           </div>
           <div class="modal-footer" style="justify-content: center;">
-            <button id="button" type="submit" class="button_select button_select_new" data-bs-dismiss="modal">Save changes</button>
+            <button id="button" type="submit" class="button_select button_select_new" data-bs-dismiss="modal">Create Task</button>
           </div>
         </div>
       </div>
@@ -247,6 +247,7 @@
       $('#newTaskModal').on('hidden.bs.modal', function (e) {
         $('#form').find("input[type=text]").val("");
       })
+      
       document.getElementById("button").onclick = addTodo
 
       // delete a task
@@ -286,7 +287,7 @@
                 <div class="card h-100">
                   <button class="delete_tag material-icons position-absolute top-0 end-0 card_button delete_link" onclick="deleteTask(${task.pk})">&#xe5c9;</button>
                   <h3 class="class-header" style="margin-left:16px; padding-top:16px; padding-left: 8px;padding-right: 8px;">${task.fields.title}</h3>
-                  <h6 style="margin-left:16px; padding: 2px 8px;">Created ${task.fields.date}</h6>
+                  <h6 style="margin-left:16px; padding: 2px 8px;">Created at ${task.fields.date}</h6>
                   <p class="status">${status}</p>
                   <hr class="solid" style="border-top: 2px solid rgb(115, 115, 236)">
                   <p class="description">${task.fields.description}</p>

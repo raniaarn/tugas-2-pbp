@@ -1,3 +1,4 @@
+from telnetlib import STATUS
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
@@ -6,22 +7,24 @@ from django.contrib.auth import authenticate, login, logout
 from todolist.models import Task
 from todolist.forms import TaskForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseNotFound
+from django.core import serializers
 
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
     username = request.user
-    item_list = Task.objects.filter(user=username)
+    # item_list = Task.objects.filter(user=username)
 
-    for task in item_list:
-        if (task.is_finished == True):
-            task.is_finished = "Done"
-        else:
-            task.is_finished = "Not Done"
+    # for task in item_list:
+    #     if (task.is_finished == True):
+    #         task.is_finished = "Done"
+    #     else:
+    #         task.is_finished = "Not Done"
 
     context = {
         'username': username,
-        'list_of_tasks': item_list,
+        # 'list_of_tasks': item_list,
     }
     return render(request, "todolist.html", context)
 
@@ -72,6 +75,19 @@ def create_task(request):
     return render(request, 'create_task.html', context)
 
 @login_required(login_url='/todolist/login/')
+def add_task(request):
+    if request.method == 'POST':
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_task = Task(user=user, title=title, description=description)
+        new_task.save()
+        return HttpResponse(b"CREATED")
+
+    return HttpResponseNotFound()
+
+@login_required(login_url='/todolist/login/')
 def delete_task(request, pk):
     task = Task.objects.get(id=pk)
     task.delete()
@@ -86,3 +102,8 @@ def edit_task(request, pk):
         task.is_finished = True
     task.save()
     return redirect('todolist:show_todolist')
+
+@login_required(login_url='/todolist/login/')
+def get_todolist_json(request):
+    data = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data))

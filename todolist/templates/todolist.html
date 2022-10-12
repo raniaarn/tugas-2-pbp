@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,9 +14,10 @@
         font-size: 16px;
         display: block;
         margin: 0 auto;
-        margin-top: 32px;
+        margin-top: 16px;
         margin-bottom: 32px;
         border-radius: 10px;
+        color: white;
         filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
       }
       .button_select_logout {
@@ -55,6 +56,7 @@
       .button_select:hover, .button_select:focus {
         transform: scale(1.02);
         background-color: rgb(71, 71, 226);
+        color: white;
       }
       .navbar {
         background: white;
@@ -119,6 +121,15 @@
         margin-left: 24px;
         margin-right: 24px;
       }
+      input {
+          width:200px;
+          padding: 12px 24px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border-radius: 10px;
+          border: 3px solid rgb(115, 115, 236);
+          background-color: white;
+        }
       .success {
         padding: 20px;
         background-color: rgb(115, 115, 236);
@@ -138,6 +149,29 @@
       }
       .closebtn:hover {
         color: black;
+      }
+      .button_select_close:hover {
+        transform: scale(1.02);
+        background-color: rgb(71, 71, 226);
+      }
+      .status {
+        margin-left:16px; 
+        padding: 0px 8px; 
+        font-size: 16px; 
+        font-weight:bold; 
+        color: rgb(115, 115, 236)
+      }
+      .class-header{
+        margin-left:16px; 
+        padding-top:16px; 
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      .solid {
+        border-top: 2px solid rgb(115, 115, 236)
+      }
+      .container-xl {
+        margin-bottom: 32px;
       }
     </style>
     <meta charset="utf-8">
@@ -167,16 +201,96 @@
       {% endfor %}
     {% endif %}  
 
+    <!-- Modal -->
+    <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#exampleModal">Add new task</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new task ^-^</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body justify-content-center" style="display:block; margin:0 auto">
+            <form id="form" onsubmit="return false;">
+              {% csrf_token %}
+                <input type="text" name="title" maxlength="255" placeholder="Task title">
+                <br>
+                <input style="margin-top: 16px;" type="text" name="description" placeholder="Task Description">
+          </div>
+          <div class="modal-footer" style="justify-content: center;">
+            <button id="button" type="submit" class="button_select button_select_new" data-bs-dismiss="modal">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     {% comment %} data of tasks {% endcomment %}
     <div class="container-xl">
-    <div class="row row-cols-md-3 g-4 justify-content-center" >
+      <div class="row row-cols-md-3 g-4 justify-content-center" id="muncul">
+
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        showTask();
+      }); 
+
+      document.getElementById("button").onclick = addTodo
+
+      // fungsi POST
+      function addTodo() {
+        fetch("{% url 'todolist:add_task' %}", {
+          method: "POST",
+          body: new FormData(document.querySelector('#form'))
+        }).then(showTask)
+        return false
+      }
+
+      // fungsi get data todolist
+      function showTask() {
+        let htmlString = "";
+        $.ajax({
+          url: "json",
+          type: "GET",
+          dataType: "json",
+          success: function(data) {
+            data.forEach(task => {
+              let status = task.fields.is_finished ? "Done" : "Not Done";
+              let updateIcon = task.fields.is_finished ? "&#xf053;" : "&#xe876;";
+              htmlString += `
+              <div class="col">
+                <div class="card h-100">
+                  <p class="delete_tag material-icons position-absolute top-0 end-0"><a class="card_button delete_link" href="delete-task/${task.pk}">&#xe5c9;</a></p>
+                  <h3 class="class-header" style="margin-left:16px; padding-top:16px; padding-left: 8px;padding-right: 8px;">${task.fields.title}</h3>
+                  <h6 style="margin-left:16px; padding: 2px 8px;">${task.fields.date}</h6>
+                  <p class="status">${status}</p>
+                  <hr class="solid" style="border-top: 2px solid rgb(115, 115, 236)">
+                  <p class="description">${task.fields.description}</p>
+                  <div class="button_box mt-auto" style="background-color: none; align-items: center; padding-bottom: 20px; padding-top: 20px;">
+                    <p class="update_task material-icons"><a class="card_button" href="edit-task/${task.pk}">${updateIcon}</a></p>
+                  </div>
+                </div>
+              </div>`
+              ;
+              $('#muncul').html(htmlString);
+          })
+        }, error: function(data) {
+          console.log("error");
+        }
+      })
+      };
+    </script>
+
+    <!--
     {% for task in list_of_tasks %}
       <div class="col">
       <div class="card h-100">
         <p class="delete_tag material-icons position-absolute top-0 end-0"><a class="card_button delete_link" href="{% url 'todolist:delete_task' task.id %}">&#xe5c9;</a></p>
         <h3 class="class-header" style="margin-left:16px; padding-top:16px; padding-left: 8px;padding-right: 8px;">{{task.title}}</h3>
         <h6 style="margin-left:16px; padding: 2px 8px;">{{task.date}}</h6>
-        <p style="margin-left:16px; padding: 0px 8px; font-size: 16px; font-weight:bold; color: rgb(115, 115, 236)">{{task.is_finished}}</p>
+        <p class="status">{{task.is_finished}}</p>
         <hr class="solid" style="border-top: 2px solid rgb(115, 115, 236)">
         <p class="description">{{task.description}}</p>
         <div class="button_box mt-auto" style="background-color: none; align-items: center; padding-bottom: 20px; padding-top: 20px;">
@@ -189,12 +303,11 @@
     </div>
     </div>
     {% endfor %}
-  </div>
-  </div>
+  </div> 
+
+  <button class="button_select_new button_select"><a class="link_below" href="{% url 'todolist:create_task' %}">Add new task </a></button>-->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-  <button class="button_select_new button_select"><a class="link_below" href="{% url 'todolist:create_task' %}">Add new task </a></button>
-
 
   </body>
 </html>

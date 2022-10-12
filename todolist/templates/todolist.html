@@ -80,9 +80,12 @@
         margin:8px; 
         width: 48px;
         text-align:center;
-        color: white; 
+        color: rgb(115, 115, 236);
         padding: 5px 10px; 
-        border-radius: 5px; 
+        border-radius: 5px;
+        background-color: white;
+        border: 0;
+        text-shadow: 2px 2px 2px rgba(174, 174, 174, 0.347);
       }
       .delete_tag:hover, .delete_tag:focus {
         transform: scale(1.02);
@@ -115,6 +118,7 @@
       }
       .delete_link:hover {
         color: rgb(71, 71, 226);
+        text-decoration: none;
       }
       .description {
         padding: 5px 8px; color: gray;
@@ -183,6 +187,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a style="font-size: 24px; font-weight: bold; color: rgb(101, 101, 179);" class="navbar-brand" href="#"><img src="https://i.ibb.co/xXN8KcP/itemmate.png" style="max-height: 50px"></a>
@@ -192,17 +197,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <h1 class="headings" style="text-align:center;font-family:sans-serif;font-weight: bold; padding-bottom: 8px;padding-top: 24px;">{{username}}'s To Do List</h1>
 
-    {% if messages %}
+    <!-- success message -->
+    <!-- {% if messages %}
       {% for message in messages %}
         <div class="success">
           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
           {{message}}
         </div>
       {% endfor %}
-    {% endif %}  
+    {% endif %}  -->
 
     <!-- Modal -->
-    <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#newTaskModal">Add new task</button>
+    <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#newTaskModal">Add task</button>
     <div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -243,8 +249,20 @@
       })
       document.getElementById("button").onclick = addTodo
 
+      // delete a task
+      function deleteTask(val) {
+        $.ajax({
+          type :"DELETE",
+          url :`/todolist/delete/${val}/`,
+          success: function () {
+            $(`#${val}`).remove()
+          },
+        }).then(showTask)
+      }
+
       // fungsi POST
       function addTodo() {
+        let message ='';
         fetch("{% url 'todolist:add_task' %}", {
           method: "POST",
           body: new FormData(document.querySelector('#form'))
@@ -266,9 +284,9 @@
               htmlString += `
               <div class="col">
                 <div class="card h-100">
-                  <p class="delete_tag material-icons position-absolute top-0 end-0"><a class="card_button delete_link" href="delete-task/${task.pk}">&#xe5c9;</a></p>
+                  <button class="delete_tag material-icons position-absolute top-0 end-0 card_button delete_link" onclick="deleteTask(${task.pk})">&#xe5c9;</button>
                   <h3 class="class-header" style="margin-left:16px; padding-top:16px; padding-left: 8px;padding-right: 8px;">${task.fields.title}</h3>
-                  <h6 style="margin-left:16px; padding: 2px 8px;">${task.fields.date}</h6>
+                  <h6 style="margin-left:16px; padding: 2px 8px;">Created ${task.fields.date}</h6>
                   <p class="status">${status}</p>
                   <hr class="solid" style="border-top: 2px solid rgb(115, 115, 236)">
                   <p class="description">${task.fields.description}</p>

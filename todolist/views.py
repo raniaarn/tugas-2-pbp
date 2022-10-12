@@ -1,4 +1,3 @@
-from telnetlib import STATUS
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
@@ -9,7 +8,7 @@ from todolist.forms import TaskForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
-
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
@@ -92,6 +91,14 @@ def delete_task(request, pk):
     task = Task.objects.get(id=pk)
     task.delete()
     return redirect('todolist:show_todolist')
+
+@login_required(login_url='/todolist/login/')
+@csrf_exempt
+def delete_task_ajax(request, pk):
+    if request.method == 'DELETE':
+        task = Task.objects.get(id=pk)
+        task.delete()
+    return HttpResponse(b"DELETE")
 
 @login_required(login_url='/todolist/login/')
 def edit_task(request, pk):

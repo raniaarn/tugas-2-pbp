@@ -202,12 +202,12 @@
     {% endif %}  
 
     <!-- Modal -->
-    <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#exampleModal">Add new task</button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#newTaskModal">Add new task</button>
+    <div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new task ^-^</h1>
+            <h1 class="modal-title fs-5" id="newTaskModalLabel">Add a new task ^-^</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body justify-content-center" style="display:block; margin:0 auto">
@@ -237,6 +237,10 @@
         showTask();
       }); 
 
+      // reset input
+      $('#newTaskModal').on('hidden.bs.modal', function (e) {
+        $('#form').find("input[type=text]").val("");
+      })
       document.getElementById("button").onclick = addTodo
 
       // fungsi POST

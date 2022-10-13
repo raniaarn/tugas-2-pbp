@@ -218,6 +218,7 @@
                 <input type="text" name="title" maxlength="255" placeholder="Task title">
                 <br>
                 <input style="margin-top: 16px;" type="text" name="description" placeholder="Task Description">
+            </form>
           </div>
           <div class="modal-footer" style="justify-content: center;">
             <button id="button" type="submit" class="button_select button_select_new" data-bs-dismiss="modal">Create Task</button>
@@ -259,7 +260,6 @@
 
       // fungsi POST
       function addTodo() {
-        let message ='';
         fetch("{% url 'todolist:add_task' %}", {
           method: "POST",
           body: new FormData(document.querySelector('#form'))

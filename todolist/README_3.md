@@ -32,8 +32,33 @@ ketika menekan tombol create task yang memiliki id button, maka akan menambahkan
 
 
 ## **penerapan asynchronous programming pada AJAX**
-dengan AJAX, kita dimungkinkan untuk mengambil data dari database tanpa harus melakukan refresh/reload keseluruhan page, dengan kata lain secara asinkronus. Implementasinya dilakukan dengan event driven programming dan dengan menggunakan AJAX GET dan AJAX POST. Contoh cara pengimplementasiannya bisa dilihat pada poin selanjutnya.
+dengan AJAX, kita dimungkinkan untuk mengambil data dari database tanpa harus melakukan refresh/reload keseluruhan page, dengan kata lain secara asinkronus. Implementasinya dilakukan dengan event driven programming dan dengan menggunakan AJAX GET dan AJAX POST. Fungsi pada views.py juga mengembalikan HttpResponse agar langsung mengirimkan respon. Contoh cara pengimplementasiannya bisa dilihat pada poin selanjutnya, ada pada `todolist.html`, berikut contoh fungsi asinkronus dengan ajax:
+```
+function addTodo() {
+  let message ='';
+  fetch("{% url 'todolist:add_task' %}", {
+    method: "POST",
+    body: new FormData(document.querySelector('#form'))
+  }).then(showTask)
+  return false
+}
+```
+pada `views.py`:
+```
+@login_required(login_url='/todolist/login/')
+def add_task(request):
+  if request.method == 'POST':
+    title = request.POST.get("title")
+    description = request.POST.get("description")
+    user = request.user
 
+    new_task = Task(user=user, title=title, description=description)
+    new_task.save()
+    return HttpResponse(b"CREATED")
+
+  return HttpResponseNotFound()
+```
+saat button yang dihubungkan dengan addTodo diclick, secara asinkronus, task akan bertambah tanpa load halaman
 
 <hr>
 

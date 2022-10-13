@@ -247,12 +247,12 @@
       document.getElementById("button").onclick = addTodo
 
       // delete a task
-      function deleteTask(val) {
+      function deleteTask(task) {
         $.ajax({
           type :"DELETE",
-          url :`/todolist/delete/${val}/`,
+          url :`/todolist/delete/${task}/`,
           success: function () {
-            $(`#${val}`).remove()
+            $(`#${task}`).remove()
           },
         }).then(showTask)
       }

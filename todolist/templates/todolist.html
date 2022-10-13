@@ -10,23 +10,19 @@
         background-color: rgb(115, 115, 236);
         border: 0px;
         padding: 10px 24px;
-        text-align: center;
         font-size: 16px;
-        display: block;
-        margin: 0 auto;
-        margin-top: 16px;
-        margin-bottom: 32px;
         border-radius: 10px;
         color: white;
         filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
+        margin-left: auto;
       }
       .button_select_logout {
         background-color: rgb(115, 115, 236);
         border: 0px;
         padding: 10px 24px;
-        text-align: center;
         border-radius: 10px;
         filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.098));
+        margin-left: 16px;
       }
       .link_below:link {
         color:white;
@@ -191,6 +187,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a style="font-size: 24px; font-weight: bold; color: rgb(101, 101, 179);" class="navbar-brand" href="#"><img src="https://i.ibb.co/xXN8KcP/itemmate.png" style="max-height: 50px"></a>
+          <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#newTaskModal">Add task</button>
           <button class="button_select_logout button_select"><a class="link_below" href="{% url 'todolist:logout' %}">Logout</a></button>
       </div>
     </nav>
@@ -208,7 +205,6 @@
     {% endif %}  -->
 
     <!-- Modal -->
-    <button type="button" class="button_select_new button_select" data-bs-toggle="modal" data-bs-target="#newTaskModal">Add task</button>
     <div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
